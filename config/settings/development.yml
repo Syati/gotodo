@@ -1,0 +1,2 @@
+db:
+  dsn: root:@tcp(localhost:3306)/gotodo?charset=utf8mb4&collation=utf8mb4_general_ci&parseTime=true
