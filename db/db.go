@@ -10,7 +10,7 @@ import (
 var db *gorm.DB
 
 // Opening a database and save it to `DB`.
-func init() {
+func GetDB() *gorm.DB {
 	c := config.GetConfig()
 	db, err := gorm.Open("mysql", c.Get("db.dsn"))
 	if err != nil {
@@ -20,8 +20,5 @@ func init() {
 	// some settings
 	db.LogMode(true)
 	db.DB().SetMaxIdleConns(10)
-}
-
-func GetDb() *gorm.DB {
 	return db
 }
