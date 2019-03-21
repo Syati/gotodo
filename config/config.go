@@ -17,13 +17,7 @@ func init() {
 	config.AddConfigPath(settingPath())
 	config.SetConfigType("yaml")
 	config.SetDefault("APP_ENV", "development")
-
-	env, ok := config.Get("APP_ENV").(string)
-	if !ok {
-		panic(fmt.Errorf("Failed to read the APP_ENV\n"))
-	}
-
-	config.SetConfigName(env)
+	config.SetConfigName(config.GetString("APP_ENV"))
 
 	err := config.ReadInConfig()
 	if err != nil {
